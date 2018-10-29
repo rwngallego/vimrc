@@ -20,14 +20,14 @@ set path=$PWD/**
 noremap <C-j> 4j
 noremap <C-k> 4k
 
-"close buffer without closing the split"
-nnoremap <C-c> :bp\|bd #<CR>
-
 au FocusGained,BufEnter * :silent! !
 au FocusLost,WInLeave * :wa
 
 "Toggle NerdTree"
 noremap <S-m> :NERDTreeToggle<CR>
+
+"close buffer without closing the split"
+noremap <C-c> :bp\|bd #<CR>
 
 "HTML syntax highlight"
 au BufReadPost *.html set syntax=html
@@ -35,12 +35,15 @@ au BufReadPost *.html set syntax=html
 "Highlight search"
 set hlsearch
 
+"vim-gitgutter refresh time"
+set updatetime=1000
+
 "Ignore directories from ctrlp"
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn|_build|deps)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': '',
-  \ }
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|_build|deps)|(\.(swp|ico|git|svn))$'
+let g:ctrlp_show_hidden = 1
 
 "Case insensitive by default"
 set ic
+
+"Force vim features"
+set nocompatible
