@@ -4,10 +4,13 @@ execute pathogen#infect()
 syntax on
 filetype indent on
 
+
 set number
 :highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab
+set encoding=utf-8
+set backspace=2  "compatible with version 5.4 and earlier
 
 "Delete instead of cut in visual mode when pressing d"
 nnoremap d "_d
@@ -39,11 +42,18 @@ set hlsearch
 set updatetime=1000
 
 "Ignore directories from ctrlp"
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|_build|deps)|(\.(swp|ico|git|svn))$'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|_build|deps)|(\.(swp|ico|git|svn|DS_Store))$'
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_use_caching = 0
 
 "Case insensitive by default"
-set ic
+"set ic
 
 "Force vim features"
 set nocompatible
+
+"NerdTree show hidden"
+let NERDTreeShowHidden=1
+let NERDTreeIgnore = ['\.pyc$', '\.DS_Store$']
+
+set clipboard=unnamed
