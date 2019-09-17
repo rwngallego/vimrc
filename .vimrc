@@ -54,6 +54,6 @@ set nocompatible
 
 "NerdTree show hidden"
 let NERDTreeShowHidden=1
-let NERDTreeIgnore = ['\.pyc$', '\.DS_Store$']
+let NERDTreeIgnore = ['\.pyc$', '\.DS_Store$', '\.swp$']
 
 set clipboard=unnamed
